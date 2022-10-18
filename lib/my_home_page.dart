@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ola_mundo/my_app_controller.dart';
 
 class MyHomePage extends StatefulWidget {
 
@@ -22,13 +23,11 @@ class MyHomePageState extends State<MyHomePage> {
             )
         ),
       body: Center(
-        child: GestureDetector(
-          child: Text(
-            'Contador: $cont',
-            style: TextStyle(
-              fontSize: 30.0,
-            ),
-          ),
+          child: Switch(
+          value: MyAppController.instance.isTroca,
+          onChanged: (value) {
+            MyAppController.instance.changeTheme();
+          }
         ),
       ),
       floatingActionButton: FloatingActionButton(
