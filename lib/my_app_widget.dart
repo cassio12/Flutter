@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ola_mundo/my_app_controller.dart';
+import 'package:ola_mundo/my_login_page.dart';
 
 import 'my_home_page.dart';
 
@@ -15,12 +16,16 @@ class MyAppWiget extends StatelessWidget {
      builder: (context, child) {
       return MaterialApp(
           theme: ThemeData(
-            primarySwatch: Colors.yellow,
+            primarySwatch: Colors.deepPurple,
             brightness: MyAppController.instance.isTroca 
             ? Brightness.dark 
             : Brightness.light 
         ),
-        home: MyHomePage(),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => MyLoginpage(),
+          '/myHome': (context) => MyHomePage(), 
+        },
       );
      }, 
     );
